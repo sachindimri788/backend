@@ -9,7 +9,7 @@ userRouter.post('/login', login);
 
 userRouter.post('/addUser',[verifyToken,getUserRole], addUser);
 
-userRouter.get('/getusers',[verifyToken,getUserRole],getUsers);                                                     //,logRequest in middleware
+userRouter.post('/getusers',[verifyToken,getUserRole],getUsers);                                                     //,logRequest in middleware
 
 userRouter.post('/logout',verifyToken,logout);
 
