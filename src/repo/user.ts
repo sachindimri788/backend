@@ -75,7 +75,7 @@ class UserRepo {
 
   async addUser(user: TUser) {
     try {
-      const password = await bcrypt.hash(JSON.stringify(user.password), bcrypt.genSaltSync(8));        //////BCRYPT
+      const password = await bcrypt.hash(typeof user.password == "string" ? user.password : JSON.stringify(user.password), bcrypt.genSaltSync(8));           //////BCRYPT
       user.password = password;
     }
     catch (e) { console.log(e); return; }
