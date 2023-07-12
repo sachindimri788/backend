@@ -31,8 +31,8 @@ class UserRepo {
       if (bpass) {
         return user;
       }
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      throw new Error("internal Error")
     }
   }
 
@@ -52,7 +52,7 @@ class UserRepo {
           {
             model: Department,
             attributes: ['department'],
-            where: department ? { department } : {},                        /////////department filter
+            where: department ? { department } : {},                               /////////department filter
           },
         ],
         through: {

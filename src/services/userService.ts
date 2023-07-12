@@ -8,7 +8,12 @@ class UserService {
   constructor() {}
 
   async getUserByEmailPassword(email:string,password:string) {
+    try{
     return await userRepo.getUserByEmailPassword(email,password);
+    }
+    catch(error){
+      throw new Error("internal Error")
+    }
   }
 
   async getUsers(page:any,limit:any,department:any,role:any) {

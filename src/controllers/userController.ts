@@ -34,10 +34,9 @@ export const login = async (req: Express.Request, res: Express.Response) => {
       .status(HttpStatusCodes.BAD_REQUEST)
       .json({ mesage: 'invalid user' });
   } catch (error) {
-
     return res
       .status(HttpStatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ error: 'internal server error' });
+      .json({ error:error.mesage });
   }
 };
 
