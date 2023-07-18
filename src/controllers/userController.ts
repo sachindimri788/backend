@@ -82,7 +82,7 @@ export const addUser = async (req: Express.Request, res: Express.Response) => {
 
       /////////////email validation check
       const exist=await userService.isEmailExists(email);
-      if(exist){
+      if(!exist){
         const password:any=await sendPasswordEmail(email);
         if(password){
         const userId = 1; //res.locals.userId
