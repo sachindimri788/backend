@@ -94,7 +94,7 @@ class UserRepo {
     const user = await User.findOne({
       where: { emailId: email },
     });
-    if (!user) {
+    if (user) {
       return true;
     } else {
       return false;
